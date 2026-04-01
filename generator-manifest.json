@@ -1,0 +1,18 @@
+{
+  "branch": "main",
+  "depends_recipe": "",
+  "description_control": "E2 Chromium Plugin",
+  "description_recipe": "E2 Chromium Plugin",
+  "history_source_dir": "VuChromium",
+  "internal_package_name": "enigma2-plugin-extensions-chromium",
+  "module_dir_name": "VuChromium",
+  "output_subdir": "VuChromium",
+  "package_name": "enigma2-plugin-extensions-chromium-vu-chromium",
+  "plugin_src_rel": "VuChromium",
+  "python_package": "VuChromium",
+  "rdepends_recipe": "",
+  "replaces": "",
+  "repo_name": "VuChromium",
+  "rrecommends": "",
+  "rreplaces": ""
+}
