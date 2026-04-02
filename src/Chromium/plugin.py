@@ -161,7 +161,7 @@ class BBrowserLauncher(Screen):
                 pass
             command += "&"
 
-        #os.system(command)
+        # os.system(command)
         subprocess.call(command, shell=True)
 
         self.dvbappLockTimer = eTimer()
