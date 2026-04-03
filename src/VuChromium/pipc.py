@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 import os
 import threading
-import time
 import socket
 import select
 import struct
@@ -16,7 +15,7 @@ _SOCKETFILE = None
 def SetHandler(opcode, handler):
     try:
         _OPCODE[opcode][1] = handler
-    except:
+    except Exception:
         cbcfg.ERROR("Fail to set handler (unknown opcode): %s", opcode)
         return False
     return True
@@ -53,7 +52,7 @@ class PServerHandlers:
                 cbcfg.DEBUG("add handler -> [%s]", opcodestr)
                 SetHandler(opcodestr, fref)
                 registreted_idx += 1
-            except:
+            except Exception:
                 pass
         cbcfg.DEBUG("%d handlers registreated.", registreted_idx)
 
@@ -70,7 +69,7 @@ class PServerThread(threading.Thread):
         self.mTimeout = timeout
         try:
             os.unlink(addr)
-        except:
+        except OSError:
             if os.path.exists(addr):
                 cbcfg.ERROR("Fail to remove %s.", addr)
                 return False

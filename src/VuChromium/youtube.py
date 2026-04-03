@@ -5,7 +5,7 @@ from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.Sources.StaticText import StaticText
-from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigText, getConfigListEntry
+from Components.config import config, getConfigListEntry
 
 from . import cbcfg
 

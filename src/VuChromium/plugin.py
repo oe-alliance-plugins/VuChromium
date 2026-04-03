@@ -9,14 +9,14 @@ import subprocess
 from . import cbcfg
 from . import pipc
 
-from enigma import eTimer, fbClass, eRCInput, eDVBResourceManager, eDVBVolumecontrol
+from enigma import eTimer, eRCInput, eDVBResourceManager, eDVBVolumecontrol
 
 from Tools.Transponder import ConvertToHumanReadable
 
 from .pipc import PServerThread, PServerHandlers
 
 from .youtube import YoutubeTVWindow, YoutubeTVSettings
-from .chromium import ChromiumOSWindow, ChromiumOSSettings
+from .chromium import ChromiumOSWindow
 
 _g_launcher_handler = None
 
@@ -53,7 +53,7 @@ class BrowserHandlers(PServerHandlers):
     def _player_exit_cb(self, ret=None):
         try:
             self.playerHandle.playlist.clear()
-        except:
+        except Exception:
             pass
         self.playerHandle = None
 
@@ -131,7 +131,7 @@ class BBrowserLauncher(Screen):
             try:
                 if config.plugins.fccsetup.activate.value is True:
                     command += "-d 4"
-            except:
+            except Exception:
                 pass
             command += "&"
         elif mode == "chromiumos":
@@ -144,7 +144,7 @@ class BBrowserLauncher(Screen):
             try:
                 if config.plugins.fccsetup.activate.value is True:
                     command += "-d 4"
-            except:
+            except Exception:
                 pass
             command += "&"
         else:
@@ -157,7 +157,7 @@ class BBrowserLauncher(Screen):
             try:
                 if config.plugins.fccsetup.activate.value is True:
                     command += "-d 4"
-            except:
+            except Exception:
                 pass
             command += "&"
 
@@ -293,7 +293,7 @@ def session_start_main(session, reason, **kwargs):
 
         global global_session
         global_session = session
-    except:
+    except ImportError:
         pass
 
 
